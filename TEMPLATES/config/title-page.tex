@@ -1,204 +1,43 @@
 %----------------------------------------------
-% Title Page Component
+% Title Page Configuration
 %----------------------------------------------
 
-\newcommand{\lugtitlepage}{
-    \thispagestyle{lugtitle}
-    \begin{titlepage}
-        \centering
-        
-        % Logo space (if available)
-        \vspace{2cm}
-        
-        % Main title
-        \titlesize\lugbold\color{lugprimary}
-        \lugsessiontitle
-        
-        \vspace{1cm}
-        
-        % Subtitle
-        \subtitlesize\color{lugmedium}
-        \lugseries\ \#\lugsessionnumber
-        
-        \vspace{0.5cm}
-        
-        % Organization
-        \large\color{lugdark}
-        \lugname
-        
-        \vspace{2cm}
-        
-        % Abstract box
-        \begin{center}
-            \colorbox{luglight}{
-                \begin{minipage}{0.85\textwidth}
-                    \centering
-                    \vspace{0.5cm}
-                    \Large\lugbold{Document Abstract}
-                    \vspace{0.3cm}
-                    
-                    \normalsize
-                    \lugsessiondescription
-                    \vspace{0.5cm}
-                \end{minipage}
-            }
-        \end{center}
-        
-        \vfill
-        
-        % Session info
-        \begin{center}
-            \begin{tabular}{ll}
-                \lugbold{Session:} & \lugsessionnumber \\
-                \lugbold{Date:} & \lugsessiondate \\
-                \lugbold{Location:} & \luglocation \\
-                \lugbold{Website:} & \lugwebsite \\
-            \end{tabular}
-        \end{center}
-        
-        \vspace{1cm}
-        
-        % License
-        \begin{center}
-            \small\lugitalic{\luglicensetext}
-        \end{center}
-        
-    \end{titlepage}
-    \clearpage
+\title{
+    \vspace{-2cm}
+    \begin{flushleft}
+        \Huge\bfseries\color{lugblue}
+        \sessiontitle
+    \end{flushleft}
+    \vspace{-0.5cm}
+    \begin{flushleft}
+        \Large\color{lugdark}
+        Linux User Group Document Series \#\sessionnumber
+    \end{flushleft}
 }
 
-%----------------------------------------------
-% Simple Title Page (Alternative)
-%----------------------------------------------
-\newcommand{\lugsimpletitle}{
-    \thispagestyle{lugtitle}
+\date{\large\sessiondate}
+
+% Abstract box command
+\newcommand{\makeabstract}{
     \begin{center}
-        \vspace{3cm}
-        
-        \titlesize\lugbold\color{lugprimary}
-        \lugsessiontitle
-        
-        \vspace{1cm}
-        
-        \subtitlesize\color{lugmedium}
-        \lugseries\ \#\lugsessionnumber
-        
-        \vspace{0.5cm}
-        
-        \large\color{lugdark}
-        \lugname
-        
-        \vspace{2cm}
-        
-        \normalsize\lugdate{\lugsessiondate}
-        
-        \vfill
-        
-        \small\lugitalic{\luglicensetext}
-        
+        \colorbox{luglight}{
+            \begin{minipage}{0.8\textwidth}
+                \centering
+                \vspace{0.5cm}
+                \Large\textbf{Document Abstract}
+                \vspace{0.3cm}
+                
+                \normalsize
+                \sessionabstract
+                \vspace{0.5cm}
+            \end{minipage}
+        }
     \end{center}
-    \clearpage
 }
 
-%----------------------------------------------
-% Cover Page with Background
-%----------------------------------------------
-\newcommand{\lugcoverpage}{
-    \thispagestyle{lugtitle}
-    \begin{titlepage}
-        \begin{tikzpicture}[remember picture,overlay]
-            \fill[lugprimary] (current page.south west) rectangle (current page.north east);
-            \fill[luglight] ([yshift=-5cm]current page.north west) rectangle (current page.south east);
-        \end{tikzpicture}
-        
-        \vspace{3cm}
-        \centering
-        
-        \color{white}
-        \titlesize\lugbold
-        \lugsessiontitle
-        
-        \vspace{1cm}
-        
-        \color{lugprimary}
-        \subtitlesize\lugbold
-        \lugseries\ \#\lugsessionnumber
-        
-        \vspace{0.5cm}
-        
-        \color{lugdark}
-        \large
-        \lugname
-        
-        \vfill
-        
-        \color{lugdark}
-        \normalsize\lugdate{\lugsessiondate}
-        
-        \vspace{2cm}
-        
-    \end{titlepage}
-    \clearpage
-}
-
-%----------------------------------------------
-% Title Page with Author Info
-%----------------------------------------------
-\newcommand{\lugauthortitle}[1]{
-    \thispagestyle{lugtitle}
-    \begin{titlepage}
-        \centering
-        
-        \vspace{2cm}
-        
-        \titlesize\lugbold\color{lugprimary}
-        \lugsessiontitle
-        
-        \vspace{1cm}
-        
-        \subtitlesize\color{lugmedium}
-        \lugseries\ \#\lugsessionnumber
-        
-        \vspace{0.5cm}
-        
-        \large\color{lugdark}
-        \lugname
-        
-        \vspace{2cm}
-        
-        % Author info
-        \begin{center}
-            \large\lugbold{Presented by:}\\
-            \vspace{0.5cm}
-            \normalsize #1
-        \end{center}
-        
-        \vspace{2cm}
-        
-        % Abstract
-        \begin{center}
-            \colorbox{luglight}{
-                \begin{minipage}{0.85\textwidth}
-                    \centering
-                    \vspace{0.5cm}
-                    \Large\lugbold{Session Overview}
-                    \vspace{0.3cm}
-                    
-                    \normalsize
-                    \lugsessiondescription
-                    \vspace{0.5cm}
-                \end{minipage}
-            }
-        \end{center}
-        
-        \vfill
-        
-        \normalsize\lugdate{\lugsessiondate}
-        
-        \vspace{1cm}
-        
-        \small\lugitalic{\luglicensetext}
-        
-    \end{titlepage}
-    \clearpage
+% License notice
+\newcommand{\makelicense}{
+    \begin{center}
+        \small\textit{This document is released under the Creative Commons Attribution 4.0 International License}
+    \end{center}
 }

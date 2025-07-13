@@ -1,0 +1,26 @@
+%----------------------------------------------
+% Section Formatting Configuration
+%----------------------------------------------
+\usepackage{titlesec}
+
+\titleformat{\section}
+{\Large\bfseries\color{lugblue}}
+{\thesection}{1em}{}
+
+\titleformat{\subsection}
+{\large\bfseries\color{lugdark}}
+{\thesubsection}{1em}{}
+
+\titleformat{\subsubsection}
+{\normalsize\bfseries\color{lugmedium}}
+{\thesubsubsection}{1em}{}
+
+%----------------------------------------------
+% Table of Contents Formatting
+%----------------------------------------------
+\usepackage{tocloft}
+
+\renewcommand{\cftsecfont}{\bfseries\color{lugblue}}
+\renewcommand{\cftsecpagefont}{\bfseries\color{lugblue}}
+\renewcommand{\cftsubsecfont}{\color{lugdark}}
+\renewcommand{\cftsubsecpagefont}{\color{lugdark}}

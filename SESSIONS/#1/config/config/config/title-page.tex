@@ -1,0 +1,43 @@
+%----------------------------------------------
+% Title Page Configuration
+%----------------------------------------------
+
+\title{
+	\vspace{-2cm}
+	\begin{flushleft}
+		\Huge\bfseries\color{lugblue}
+		\sessiontitle
+	\end{flushleft}
+	\vspace{-0.5cm}
+	\begin{flushleft}
+		\Large\color{lugdark}
+		Linux User Group Document Series \#\sessionnumber
+	\end{flushleft}
+}
+
+\date{\large\sessiondate}
+
+% Abstract box command
+\newcommand{\makeabstract}{
+	\begin{center}
+		\colorbox{luglight}{
+			\begin{minipage}{0.8\textwidth}
+				\centering
+				\vspace{0.5cm}
+				\Large\textbf{Document Abstract}
+				\vspace{0.3cm}
+				
+				\normalsize
+				\sessionabstract
+				\vspace{0.5cm}
+			\end{minipage}
+		}
+	\end{center}
+}
+
+% License notice
+\newcommand{\makelicense}{
+	\begin{center}
+		\small\textit{This document is released under the Creative Commons Attribution 4.0 International License}
+	\end{center}
+}

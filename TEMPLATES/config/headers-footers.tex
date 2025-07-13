@@ -1,0 +1,21 @@
+%----------------------------------------------
+% Headers and Footers Configuration
+%----------------------------------------------
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\pagestyle{fancy}
+\fancyhf{}
+
+% Header configuration
+\fancyhead[L]{\small\textsc{Linux User Group}}
+\fancyhead[R]{\small\textsc{Document Series \#\sessionnumber}}
+\fancyfoot[L]{\small\textit{\sessiontitle}}
+\fancyfoot[C]{\small Page \thepage\ of \pageref{LastPage}}
+\fancyfoot[R]{\small\textit{\sessiondate}}
+
+% Header and footer rules
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{lugblue}\leaders\hrule height \headrulewidth\hfill}}
+\renewcommand{\footrule}{\hbox to\headwidth{\color{lugmedium}\leaders\hrule height \footrulewidth\hfill}}
