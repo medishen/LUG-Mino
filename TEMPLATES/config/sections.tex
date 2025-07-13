@@ -1,0 +1,139 @@
+%----------------------------------------------
+% Section Formatting and Styling
+%----------------------------------------------
+\usepackage{titlesec}
+\usepackage{titletoc}
+
+%----------------------------------------------
+% Section Numbering
+%----------------------------------------------
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+%----------------------------------------------
+% Section Formatting
+%----------------------------------------------
+\titleformat{\section}
+    {\sectionsize\lugbold\color{lugprimary}}
+    {\thesection}{1em}{}
+    [\vspace{-0.5em}\textcolor{lugprimary}{\titlerule[0.8pt]}]
+
+\titleformat{\subsection}
+    {\subsectionsize\lugbold\color{lugdark}}
+    {\thesubsection}{1em}{}
+
+\titleformat{\subsubsection}
+    {\normalsize\lugbold\color{lugmedium}}
+    {\thesubsubsection}{1em}{}
+
+%----------------------------------------------
+% Section Spacing
+%----------------------------------------------
+\titlespacing*{\section}{0pt}{2em}{1em}
+\titlespacing*{\subsection}{0pt}{1.5em}{0.5em}
+\titlespacing*{\subsubsection}{0pt}{1em}{0.5em}
+
+%----------------------------------------------
+% Paragraph Formatting
+%----------------------------------------------
+\titleformat{\paragraph}[runin]
+    {\normalsize\lugbold\color{lugdark}}
+    {\theparagraph}{1em}{}[:]
+
+\titleformat{\subparagraph}[runin]
+    {\normalsize\lugitalic\color{lugmedium}}
+    {\thesubparagraph}{1em}{}[:]
+
+%----------------------------------------------
+% Custom Section Commands
+%----------------------------------------------
+\newcommand{\lugsection}[1]{%
+    \section{#1}
+    \vspace{-0.5em}
+}
+
+\newcommand{\lugsubsection}[1]{%
+    \subsection{#1}
+    \vspace{-0.3em}
+}
+
+\newcommand{\lugsubsubsection}[1]{%
+    \subsubsection{#1}
+    \vspace{-0.3em}
+}
+
+%----------------------------------------------
+% Special Sections
+%----------------------------------------------
+\newcommand{\lugintro}[1]{%
+    \section*{Introduction}
+    \addcontentsline{toc}{section}{Introduction}
+    \markboth{Introduction}{Introduction}
+    #1
+}
+
+\newcommand{\lugconclusion}[1]{%
+    \section*{Conclusion}
+    \addcontentsline{toc}{section}{Conclusion}
+    \markboth{Conclusion}{Conclusion}
+    #1
+}
+
+\newcommand{\lugresources}[1]{%
+    \section*{Further Resources}
+    \addcontentsline{toc}{section}{Further Resources}
+    \markboth{Further Resources}{Further Resources}
+    #1
+}
+
+%----------------------------------------------
+% Section Decorations
+%----------------------------------------------
+\newcommand{\sectiondecor}[1]{%
+    \begin{center}
+        \color{lugprimary}
+        \rule{0.5\textwidth}{0.4pt}
+        \quad #1 \quad
+        \rule{0.5\textwidth}{0.4pt}
+    \end{center}
+}
+
+%----------------------------------------------
+% Appendix Formatting
+%----------------------------------------------
+\usepackage{appendix}
+\renewcommand{\appendixname}{Appendix}
+\renewcommand{\appendixtocname}{Appendices}
+\renewcommand{\appendixpagename}{Appendices}
+
+%----------------------------------------------
+% Reference Section
+%----------------------------------------------
+\newcommand{\lugreferences}{%
+    \newpage
+    \printbibliography[title=References]
+    \addcontentsline{toc}{section}{References}
+}
+
+%----------------------------------------------
+% Question/Exercise Sections
+%----------------------------------------------
+\newcounter{exercise}
+\newenvironment{exercise}[1][]{%
+    \refstepcounter{exercise}
+    \par\noindent
+    \textbf{\color{lugprimary}Exercise \theexercise #1:}
+    \par\noindent
+}{%
+    \par\vspace{0.5em}
+}
+
+\newcounter{question}
+\newenvironment{question}[1][]{%
+    \refstepcounter{question}
+    \par\noindent
+    \textbf{\color{lugaccent}Question \thequestion #1:}
+    \par\noindent
+}{%
+    \par\vspace{0.5em}
+}

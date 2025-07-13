@@ -1,0 +1,59 @@
+\usepackage{lmodern}                % Latin Modern fonts
+\usepackage{microtype}              % Better typography
+\usepackage{charter}                % Professional serif font
+\usepackage[scaled=0.92]{helvet}    % Helvetica for sans-serif
+\usepackage[scaled=0.85]{beramono}  % Monospace for code
+
+%----------------------------------------------
+% Font Families
+%----------------------------------------------
+\renewcommand{\rmdefault}{bch}      % Charter as default serif
+\renewcommand{\sfdefault}{phv}      % Helvetica as default sans-serif
+\renewcommand{\ttdefault}{fvm}      % Bera Mono as default monospace
+
+%----------------------------------------------
+% Custom Font Commands
+%----------------------------------------------
+\newcommand{\lugfont}[1]{\textsf{\textbf{#1}}}            % LUG brand font
+\newcommand{\codefont}[1]{\texttt{\small{#1}}}            % Inline code font
+\newcommand{\terminalfont}[1]{\texttt{\footnotesize{#1}}}  % Terminal font
+\newcommand{\buttonfont}[1]{\textsf{\small{#1}}}          % Button/UI font
+\newcommand{\captionfont}[1]{\textsf{\footnotesize{#1}}}  % Caption font
+
+%----------------------------------------------
+% Font Sizes
+%----------------------------------------------
+\newcommand{\titlesize}{\Huge}
+\newcommand{\subtitlesize}{\Large}
+\newcommand{\sectionsize}{\large}
+\newcommand{\subsectionsize}{\normalsize}
+\newcommand{\captionsize}{\footnotesize}
+\newcommand{\footersize}{\scriptsize}
+
+%----------------------------------------------
+% Typography Settings
+%----------------------------------------------
+\usepackage{setspace}
+\setstretch{1.15}                   % Line spacing
+\setlength{\parindent}{1.2em}       % Paragraph indentation
+\setlength{\parskip}{0.5ex plus 0.2ex minus 0.1ex}  % Paragraph spacing
+
+%----------------------------------------------
+% Text Emphasis
+%----------------------------------------------
+\newcommand{\lugbold}[1]{\textbf{\color{lugdark}{#1}}}
+\newcommand{\lugitalic}[1]{\textit{\color{lugmedium}{#1}}}
+\newcommand{\lugmono}[1]{\texttt{\color{lugdark}{#1}}}
+\newcommand{\lugbrand}[1]{\textsc{\color{lugprimary}{#1}}}
+
+%----------------------------------------------
+% Special Typography
+%----------------------------------------------
+\newcommand{\linux}{\lugbrand{Linux}}
+\newcommand{\git}{\lugbrand{Git}}
+\newcommand{\gnu}{\lugbrand{GNU}}
+\newcommand{\unix}{\lugbrand{Unix}}
+\newcommand{\lug}{\lugbrand{LUG}}
+\newcommand{\bash}{\lugbrand{Bash}}
+\newcommand{\vim}{\lugbrand{Vim}}
+\newcommand{\emacs}{\lugbrand{Emacs}}

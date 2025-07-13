@@ -1,0 +1,102 @@
+%----------------------------------------------
+% Page Layout and Geometry
+%----------------------------------------------
+\usepackage[
+    a4paper,
+    top=2.5cm,
+    bottom=2.5cm,
+    left=2.5cm,
+    right=2.5cm,
+    headheight=1.5cm,
+    headsep=0.8cm,
+    footskip=1cm,
+    marginparwidth=2cm,
+    marginparsep=0.3cm
+]{geometry}
+
+%----------------------------------------------
+% Page Layout Settings
+%----------------------------------------------
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{afterpage}
+
+%----------------------------------------------
+% Margin Notes
+%----------------------------------------------
+\usepackage{marginnote}
+\renewcommand*{\marginfont}{\footnotesize\itshape\color{lugmedium}}
+
+%----------------------------------------------
+% Floating Elements
+%----------------------------------------------
+\usepackage{float}
+\usepackage{placeins}
+
+% Float placement settings
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+\renewcommand{\textfraction}{0.07}
+\renewcommand{\floatpagefraction}{0.7}
+
+%----------------------------------------------
+% Multi-column Layout
+%----------------------------------------------
+\usepackage{multicol}
+\setlength{\columnsep}{1.5em}
+\setlength{\columnseprule}{0.4pt}
+
+%----------------------------------------------
+% Page Breaks and Spacing
+%----------------------------------------------
+\usepackage{needspace}
+\usepackage{afterpage}
+
+% Custom spacing commands
+\newcommand{\sectionbreak}{\clearpage}
+\newcommand{\subsectionbreak}{\vspace{1em}}
+\newcommand{\minorbreak}{\vspace{0.5em}}
+
+%----------------------------------------------
+% Page Styles
+%----------------------------------------------
+\fancypagestyle{lugmain}{
+    \fancyhf{}
+    \fancyhead[L]{\lugfont{Linux User Group}}
+    \fancyhead[R]{\lugfont{MinoDasht}}
+    \fancyfoot[L]{\footersize\lugitalic{\lugsessiontitle}}
+    \fancyfoot[C]{\footersize Page \thepage\ of \pageref{LastPage}}
+    \fancyfoot[R]{\footersize\lugitalic{\today}}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \renewcommand{\footrulewidth}{0.4pt}
+    \renewcommand{\headrule}{\hbox to\headwidth{\color{lugprimary}\leaders\hrule height \headrulewidth\hfill}}
+    \renewcommand{\footrule}{\hbox to\headwidth{\color{lugmedium}\leaders\hrule height \footrulewidth\hfill}}
+}
+
+\fancypagestyle{lugtitle}{
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+
+\fancypagestyle{lugtoc}{
+    \fancyhf{}
+    \fancyfoot[C]{\footersize Page \thepage}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0.4pt}
+    \renewcommand{\footrule}{\hbox to\headwidth{\color{lugmedium}\leaders\hrule height \footrulewidth\hfill}}
+}
+
+%----------------------------------------------
+% Default Page Style
+%----------------------------------------------
+\pagestyle{lugmain}
+
+%----------------------------------------------
+% Chapter/Section Page Breaks
+%----------------------------------------------
+\usepackage{titlesec}
+\newcommand{\sectionbreak}{\clearpage}

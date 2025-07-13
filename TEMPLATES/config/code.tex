@@ -1,0 +1,203 @@
+%----------------------------------------------
+% Code Listings and Verbatim Configuration
+%----------------------------------------------
+\usepackage{listings}
+\usepackage{fancyvrb}
+
+%----------------------------------------------
+% Base Listing Style
+%----------------------------------------------
+\lstset{
+    basicstyle=\ttfamily\small,
+    backgroundcolor=\color{codeback},
+    frame=single,
+    frameround=tttt,
+    framerule=0.8pt,
+    rulecolor=\color{lugprimary},
+    numbers=left,
+    numberstyle=\tiny\color{codegray},
+    stepnumber=1,
+    numbersep=10pt,
+    showstringspaces=false,
+    breaklines=true,
+    breakatwhitespace=true,
+    tabsize=4,
+    captionpos=b,
+    keywordstyle=\color{codeblue}\bfseries,
+    commentstyle=\color{codegreen}\itshape,
+    stringstyle=\color{codestring},
+    identifierstyle=\color{black},
+    escapeinside={(*@}{@*)},
+    xleftmargin=10pt,
+    xrightmargin=10pt,
+    aboveskip=10pt,
+    belowskip=10pt
+}
+
+%----------------------------------------------
+% Language-Specific Styles
+%----------------------------------------------
+\lstdefinestyle{bash}{
+    language=bash,
+    morekeywords={sudo, apt, yum, dnf, pacman, git, vim, nano, ls, cd, pwd, mkdir, rmdir, rm, cp, mv, cat, less, more, grep, find, which, whereis, man, info, history, alias, export, source, chmod, chown, chgrp, ps, top, htop, kill, killall, jobs, bg, fg, nohup, crontab, systemctl, service, mount, umount, df, du, free, uname, whoami, id, groups, su, sudo, ssh, scp, rsync, wget, curl, tar, gzip, gunzip, zip, unzip},
+    morecomment=[l]{\#},
+    morestring=[b]",
+    morestring=[b]'
+}
+
+\lstdefinestyle{python}{
+    language=python,
+    morekeywords={True, False, None, and, or, not, is, in, lambda, yield, async, await, nonlocal, global},
+    morecomment=[l]{\#},
+    morestring=[b]",
+    morestring=[b]',
+    morestring=[s]{"""}{"""},
+    morestring=[s]{'''}{'''}
+}
+
+\lstdefinestyle{c}{
+    language=c,
+    morekeywords={size_t, ssize_t, off_t, pid_t, uid_t, gid_t},
+    morecomment=[l]{//},
+    morecomment=[s]{/*}{*/},
+    morestring=[b]",
+    morestring=[b]'
+}
+
+\lstdefinestyle{config}{
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{codeblue}\bfseries,
+    commentstyle=\color{codegreen}\itshape,
+    stringstyle=\color{codestring},
+    morecomment=[l]{\#},
+    morestring=[b]",
+    morestring=[b]',
+    numbers=none
+}
+
+%----------------------------------------------
+% Custom Listing Commands
+%----------------------------------------------
+\newcommand{\bashcode}[1]{\lstinline[style=bash]{#1}}
+\newcommand{\pythoncode}[1]{\lstinline[style=python]{#1}}
+\newcommand{\ccode}[1]{\lstinline[style=c]{#1}}
+\newcommand{\configcode}[1]{\lstinline[style=config]{#1}}
+
+%----------------------------------------------
+% Code Block Environments
+%----------------------------------------------
+\lstnewenvironment{bashblock}[1][]
+    {\lstset{style=bash,#1}}
+    {}
+
+\lstnewenvironment{pythonblock}[1][]
+    {\lstset{style=python,#1}}
+    {}
+
+\lstnewenvironment{cblock}[1][]
+    {\lstset{style=c,#1}}
+    {}
+
+\lstnewenvironment{configblock}[1][]
+    {\lstset{style=config,#1}}
+    {}
+
+%----------------------------------------------
+% Terminal Environment
+%----------------------------------------------
+\DefineVerbatimEnvironment{terminal}{Verbatim}{
+    frame=single,
+    framerule=0.8pt,
+    rulecolor=\color{lugdark},
+    backgroundcolor=\color{terminalback},
+    formatcom=\color{terminaltext},
+    fontsize=\small,
+    commandchars=\\\{\},
+    xleftmargin=10pt,
+    xrightmargin=10pt
+}
+
+%----------------------------------------------
+% File Content Environment
+%----------------------------------------------
+\DefineVerbatimEnvironment{filecontents}{Verbatim}{
+    frame=single,
+    framerule=0.8pt,
+    rulecolor=\color{lugmedium},
+    backgroundcolor=\color{luglight},
+    fontsize=\small,
+    xleftmargin=10pt,
+    xrightmargin=10pt,
+    numbers=left,
+    numbersep=8pt
+}
+
+%----------------------------------------------
+% Inline Code Styling
+%----------------------------------------------
+\newcommand{\code}[1]{\colorbox{codeback}{\codefont{#1}}}
+\newcommand{\cmd}[1]{\texttt{\color{lugprimary}{#1}}}
+\newcommand{\file}[1]{\texttt{\color{lugaccent}{#1}}}
+\newcommand{\var}[1]{\texttt{\color{codegreen}{\$#1}}}
+\newcommand{\key}[1]{\texttt{\color{lugdark}{#1}}}
+
+%----------------------------------------------
+% Command Prompt Styling
+%----------------------------------------------
+\newcommand{\prompt}[1]{\textcolor{terminalgreen}{\texttt{#1}}}
+\newcommand{\rootprompt}[1]{\textcolor{lugdanger}{\texttt{#1}}}
+\newcommand{\userprompt}[1]{\textcolor{lugprimary}{\texttt{#1}}}
+
+%----------------------------------------------
+% Code Caption Styling
+%----------------------------------------------
+\usepackage{caption}
+\captionsetup[lstlisting]{
+    font=small,
+    labelfont={bf,color=lugprimary},
+    textfont=it,
+    margin=10pt,
+    justification=centering,
+    format=plain
+}
+
+%----------------------------------------------
+% Syntax Highlighting with Custom Colors
+%----------------------------------------------
+\lstdefinelanguage{dockerfile}{
+    keywords={FROM, RUN, CMD, LABEL, MAINTAINER, EXPOSE, ENV, ADD, COPY, ENTRYPOINT, VOLUME, USER, WORKDIR, ARG, ONBUILD, STOPSIGNAL, HEALTHCHECK, SHELL},
+    keywordstyle=\color{codeblue}\bfseries,
+    identifierstyle=\color{black},
+    sensitive=false,
+    comment=[l]{\#},
+    commentstyle=\color{codegreen}\itshape,
+    stringstyle=\color{codestring},
+    morestring=[b]',
+    morestring=[b]"
+}
+
+\lstdefinelanguage{yaml}{
+    keywords={true, false, null, True, False, Null, TRUE, FALSE, NULL, yes, no, Yes, No, YES, NO, on, off, On, Off, ON, OFF},
+    keywordstyle=\color{codeblue}\bfseries,
+    sensitive=false,
+    comment=[l]{\#},
+    commentstyle=\color{codegreen}\itshape,
+    stringstyle=\color{codestring},
+    morestring=[b]',
+    morestring=[b]",
+    moredelim=[l][\color{lugaccent}]{:},
+    moredelim=[l][\color{lugprimary}]{-}
+}
+
+%----------------------------------------------
+% Code Listing File Input
+%----------------------------------------------
+\newcommand{\codefile}[3][]{
+    \lstinputlisting[caption={#3},#1]{#2}
+}
+
+%----------------------------------------------
+% Numbered Code Lines Reference
+%----------------------------------------------
+\newcommand{\codeline}[1]{\textcolor{codegray}{\footnotesize{(line #1)}}}
+\newcommand{\coderange}[2]{\textcolor{codegray}{\footnotesize{(lines #1-#2)}}}
