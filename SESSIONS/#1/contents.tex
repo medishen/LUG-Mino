@@ -1,14 +1,13 @@
 \input{../../TEMPLATES/BASE-TEMPLATE}
 
-%----------------------------------------------
-% Document Begin
-%----------------------------------------------
+\renewcommand{\lugsessionnumber}{1}
+\renewcommand{\lugsessiontitle}{Introduction to Linux and Open Source}
+\renewcommand{\lugsessiondate}{\today}
+\renewcommand{\lugsessiondescription}{Session Description}
+
 \begin{document}
-	
-	% Custom title page
-	\maketitle
-	
-	
+    \lugdocumentbegin
+
 	\begin{center}
 		\colorbox{luglight}{
 			\begin{minipage}{0.8\textwidth}
@@ -31,12 +30,7 @@
 	\end{center}
 	
 	\newpage
-	
-	%----------------------------------------------
-	% Table of Contents
-	%----------------------------------------------
-	\tableofcontents
-	\newpage
+
 	
 	%----------------------------------------------
 	% Main Content
@@ -75,5 +69,5 @@
 	
 	\section{Wrap-Up}
 	\subsection{Further Resources}
-
+	\lugdocumentend
 \end{document}

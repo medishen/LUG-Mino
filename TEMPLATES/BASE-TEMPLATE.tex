@@ -1,0 +1,313 @@
+%----------------------------------------------
+% LUG-Mino Base Template
+% Minodasht Linux User Group(LUG) Document Template
+% Version 1.0
+%----------------------------------------------
+
+%----------------------------------------------
+% Document Class
+%----------------------------------------------
+\documentclass[12pt, a4paper, oneside]{article}
+
+%----------------------------------------------
+% Essential Packages
+%----------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning}
+
+%----------------------------------------------
+% Configuration Files
+%----------------------------------------------
+\input{../../TEMPLATES/config/colors}
+\input{../../TEMPLATES/config/fonts}
+\input{../../TEMPLATES/config/layout}
+\input{../../TEMPLATES/config/headers}
+\input{../../TEMPLATES/config/sections}
+\input{../../TEMPLATES/config/boxes}
+\input{../../TEMPLATES/config/code}
+\input{../../TEMPLATES/config/metadata}
+\input{../../TEMPLATES/config/title-page}
+
+%----------------------------------------------
+% Session-Specific Variables
+% These should be defined in each session document
+%----------------------------------------------
+% Example:
+% \renewcommand{\lugsessionnumber}{1}
+% \renewcommand{\lugsessiontitle}{Introduction to Linux and Open Source}
+% \renewcommand{\lugsessiondate}{\today}
+% \renewcommand{\lugsessiondescription}{This document serves as the first installment in the Linux User Group document series, providing a comprehensive introduction to Linux, its history, and the open-source ecosystem.}
+
+%----------------------------------------------
+% Custom Commands for LUG Documents
+%----------------------------------------------
+
+% Quick formatting commands
+\newcommand{\command}[1]{\texttt{\color{lugprimary}{#1}}}
+\newcommand{\filename}[1]{\texttt{\color{lugaccent}{#1}}}
+\newcommand{\directory}[1]{\texttt{\color{lugdark}{#1}}}
+\newcommand{\package}[1]{\texttt{\color{lugsecondary}{#1}}}
+\newcommand{\service}[1]{\texttt{\color{lugmedium}{#1}}}
+
+% Keyboard shortcuts
+\newcommand{\key}[1]{\texttt{\color{lugdark}{\textbf{#1}}}}
+\newcommand{\keys}[1]{\texttt{\color{lugdark}{\textbf{#1}}}}
+\newcommand{\keystroke}[1]{\fbox{\texttt{\scriptsize #1}}}
+
+% Menu navigation
+\newcommand{\menu}[1]{\textsf{\color{lugprimary}{#1}}}
+\newcommand{\menuitem}[1]{\textsf{\color{lugaccent}{#1}}}
+\newcommand{\submenu}[2]{\menu{#1} $\rightarrow$ \menuitem{#2}}
+
+% Status indicators
+\newcommand{\status}[1]{\textbf{\color{luginfo}{#1}}}
+\newcommand{\error}[1]{\textbf{\color{lugdanger}{#1}}}
+\newcommand{\warning}[1]{\textbf{\color{lugwarning}{#1}}}
+\newcommand{\success}[1]{\textbf{\color{lugsuccess}{#1}}}
+
+% Version and release info
+\newcommand{\version}[1]{\texttt{\color{lugmedium}{v#1}}}
+\newcommand{\release}[1]{\texttt{\color{lugdark}{#1}}}
+
+% Network and system info
+\newcommand{\ip}[1]{\texttt{\color{lugprimary}{#1}}}
+\newcommand{\port}[1]{\texttt{\color{lugaccent}{#1}}}
+\newcommand{\protocol}[1]{\texttt{\color{lugmedium}{#1}}}
+\newcommand{\hostname}[1]{\texttt{\color{lugdark}{#1}}}
+
+% User and permission info
+\newcommand{\user}[1]{\texttt{\color{lugsecondary}{#1}}}
+\newcommand{\group}[1]{\texttt{\color{lugaccent}{#1}}}
+\newcommand{\permission}[1]{\texttt{\color{lugdark}{#1}}}
+
+% Distribution names
+\newcommand{\distro}[1]{\textsc{\color{lugprimary}{#1}}}
+\newcommand{\ubuntu}{\distro{Ubuntu}}
+\newcommand{\debian}{\distro{Debian}}
+\newcommand{\fedora}{\distro{Fedora}}
+\newcommand{\centos}{\distro{CentOS}}
+\newcommand{\arch}{\distro{Arch Linux}}
+\newcommand{\opensuse}{\distro{openSUSE}}
+\newcommand{\mint}{\distro{Linux Mint}}
+\newcommand{\kali}{\distro{Kali Linux}}
+
+% Common software names
+\newcommand{\apache}{\textsc{Apache}}
+\newcommand{\nginx}{\textsc{Nginx}}
+\newcommand{\mysql}{\textsc{MySQL}}
+\newcommand{\postgresql}{\textsc{PostgreSQL}}
+\newcommand{\docker}{\textsc{Docker}}
+\newcommand{\kubernetes}{\textsc{Kubernetes}}
+\newcommand{\ansible}{\textsc{Ansible}}
+\newcommand{\terraform}{\textsc{Terraform}}
+
+%----------------------------------------------
+% Environment Setup
+%----------------------------------------------
+
+% Set up proper page margins and spacing
+\geometry{
+    a4paper,
+    top=2.5cm,
+    bottom=2.5cm,
+    left=2.5cm,
+    right=2.5cm,
+    headheight=1.5cm,
+    headsep=0.8cm,
+    footskip=1cm
+}
+
+% Set up hyperref last (except for cleveref)
+\hypersetup{
+    colorlinks=true,
+    linkcolor=lugprimary,
+    filecolor=lugprimary,
+    urlcolor=lugprimary,
+    citecolor=lugprimary,
+    pdfauthor={\lugauthors},
+    pdftitle={\lugsessiontitle},
+    pdfsubject={\lugseries\ \#\lugsessionnumber},
+    pdfkeywords={Linux, Open Source, LUG, Minodasht, Iran, Tutorial, Education},
+    pdfcreator={LaTeX with LUG Template},
+    pdfproducer={\lugname},
+    bookmarksnumbered=true,
+    bookmarksopen=true,
+    bookmarksopenlevel=2,
+    pdfstartview={FitH},
+    pdfpagemode=UseOutlines
+}
+
+%----------------------------------------------
+% Advanced Features
+%----------------------------------------------
+
+% Cross-referencing
+\usepackage{cleveref}
+\crefname{section}{Section}{Sections}
+\crefname{subsection}{Subsection}{Subsections}
+\crefname{figure}{Figure}{Figures}
+\crefname{table}{Table}{Tables}
+\crefname{equation}{Equation}{Equations}
+\crefname{listing}{Listing}{Listings}
+
+% Index support
+\usepackage{makeidx}
+\makeindex
+
+% Glossary support
+\usepackage[acronym,toc]{glossaries}
+\makeglossaries
+
+% Todo notes for development
+\usepackage{todonotes}
+\newcommand{\lugtodo}[1]{\todo[color=lugwarning!40]{#1}}
+\newcommand{\lugfixme}[1]{\todo[color=lugdanger!40]{FIXME: #1}}
+\newcommand{\lugnote}[1]{\todo[color=luginfo!40]{NOTE: #1}}
+
+%----------------------------------------------
+% Custom Environments
+%----------------------------------------------
+
+% Session objectives
+\newenvironment{objectives}{
+    \begin{infobox}[title=Session Objectives]
+        \begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=1.5em]
+}{
+        \end{enumerate}
+    \end{infobox}
+}
+
+% Prerequisites
+\newenvironment{prerequisites}{
+    \begin{warningbox}[title=Prerequisites]
+        \begin{itemize}[leftmargin=1.5em]
+}{
+        \end{itemize}
+    \end{warningbox}
+}
+
+% Lab exercise
+\newenvironment{lab}[1][]{
+    \begin{exercisebox}[title=Lab Exercise #1]
+}{
+    \end{exercisebox}
+}
+
+% Quick reference
+\newenvironment{quickref}{
+    \begin{summarybox}[title=Quick Reference]
+}{
+    \end{summarybox}
+}
+
+% Troubleshooting
+\newenvironment{troubleshooting}{
+    \begin{dangerbox}[title=Troubleshooting]
+}{
+    \end{dangerbox}
+}
+
+% Best practices
+\newenvironment{bestpractices}{
+    \begin{successbox}[title=Best Practices]
+        \begin{itemize}[leftmargin=1.5em]
+}{
+        \end{itemize}
+    \end{successbox}
+}
+
+% Resources and links
+\newenvironment{resources}{
+    \begin{keypointsbox}[title=Additional Resources]
+        \begin{itemize}[leftmargin=1.5em]
+}{
+        \end{itemize}
+    \end{keypointsbox}
+}
+
+%----------------------------------------------
+% Document Structure Commands
+%----------------------------------------------
+
+% Standard document beginning
+\newcommand{\lugdocumentbegin}{
+    \maketitle
+    \thispagestyle{lugtitle}
+    \newpage
+    \tableofcontents
+    \newpage
+    \pagestyle{lugmain}
+}
+
+% Standard document ending
+\newcommand{\lugdocumentend}{
+    \newpage
+    \lugresources{
+        For more information about the Linux User Group and upcoming sessions, visit our repository or contact us directly.
+    }
+    
+    \printindex
+    \printglossaries
+}
+
+%----------------------------------------------
+% Utility Commands
+%----------------------------------------------
+
+% Insert current Git commit hash (if available)
+\newcommand{\gitcommit}[1]{\texttt{\color{lugmedium}{\footnotesize #1}}}
+
+% Insert build date
+\newcommand{\builddate}{\textit{\color{lugmedium}{\footnotesize Built: \today}}}
+
+% Version control info
+\newcommand{\documentversion}[1]{\texttt{\color{lugmedium}{Document v#1}}}
+
+% QR code placeholder (requires qrcode package)
+\newcommand{\qrcode}[2][2cm]{
+    \begin{center}
+        \fbox{
+            \begin{minipage}[c][#1][c]{#1}
+                \centering
+                \footnotesize QR Code\\
+                \texttt{#2}
+            \end{minipage}
+        }
+    \end{center}
+}
+
+%----------------------------------------------
+% Final Setup
+%----------------------------------------------
+
+% Ensure proper language support
+\DeclareUnicodeCharacter{00A0}{ }
+
+% Set up bibliography style
+\bibliographystyle{ieeetr}
+
+% Configure list spacing
+\setlist{nosep}
+\setlist[itemize]{leftmargin=1.5em}
+\setlist[enumerate]{leftmargin=1.5em}
+\setlist[description]{leftmargin=1.5em}
+
+% Configure float placement
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+\renewcommand{\textfraction}{0.07}
+\renewcommand{\floatpagefraction}{0.7}

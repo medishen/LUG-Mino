@@ -7,3 +7,7 @@
 *.bbl
 *.bcf
 *.blg
+*.acn
+*.glo
+*.idx
+*.ist
